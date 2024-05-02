@@ -82,11 +82,20 @@ private fun GetRequiredCard(uuid: String, updateEmptyListStatus: (Boolean) -> Un
     } )
 
     if(listItemInfo.isNotEmpty()){
+       updateEmptyListStatus(false)
         val  count =0
         for(item in listItemInfo){
             DailyTaskCard(index = count , text = item["title"].toString(),uuid, show = false,item=item )
         }
     }else{
         updateEmptyListStatus(true)
+
+        Box(
+            Modifier
+                .height(50.dp)
+                .fillMaxWidth(), contentAlignment = Alignment.Center){
+            Text("Nothing to show", fontFamily = fontFamily, fontSize = 14.sp, color = Color.LightGray)
+        }
+
     }
 }

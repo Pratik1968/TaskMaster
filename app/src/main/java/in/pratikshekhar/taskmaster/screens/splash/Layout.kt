@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 import `in`.pratikshekhar.taskmaster.LocalNavController
 import `in`.pratikshekhar.taskmaster.R
@@ -52,7 +54,14 @@ private  fun MainContainer(){
         ) {
             Image(painter = painterResource(id = R.drawable.splashimage), contentDescription ="splash image" )
         when{
-            visible.isIdle && visible.currentState -> navController.navigate("signup")
+            visible.isIdle && visible.currentState -> {
+                val user = Firebase.auth.currentUser
+                var startDestination = "main"
+                if (user == null) {
+                    startDestination="signin"
+                }
+                navController.navigate(startDestination)
+            }
         }
         }
     }

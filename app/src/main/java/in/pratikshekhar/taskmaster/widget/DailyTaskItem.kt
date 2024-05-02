@@ -62,7 +62,7 @@ updateStatus.setStatusChange(index,checked,{},{ error(it) })
                         shareData. description = item["description"].toString()
                         shareData. startDate = item["startDate"].toString().toLong()
                         shareData. endDate = item["endDate"].toString().toLong()
-                        // TODO: change to micro
+                        shareData.status  = item["status"].toString().toBoolean()
                         shareData. microTaskId = ""
                         nav.navigate("viewTask")
                     }

@@ -60,26 +60,23 @@ var emptyList by remember {
     mutableStateOf(false)
 }
     val updateEmptyListState = fun (value:Boolean){emptyList = value}
-if(!emptyList){
+
     Row(
         Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .horizontalScroll(rememberScrollState()),
+            .then(
+             if(emptyList)  Modifier.horizontalScroll(rememberScrollState() )
+                else Modifier
+            )
+    ,
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         if (uuid != null) {
             GetRequiredCard(uuid,updateEmptyListState)
         }
     }
-}else{
-    Box(
-        Modifier
-            .height(50.dp)
-            .fillMaxWidth(), contentAlignment = Alignment.Center){
-        Text("Nothing to show", fontFamily = fontFamily, fontSize = 14.sp, color = Color.LightGray)
-    }
-}
+
 }
 @Composable
 private fun Title(){
@@ -144,11 +141,17 @@ private fun GetRequiredCard(uuid: String, updateEmptyListState: (Boolean) -> Uni
     } )
     
     if(!listItemInfo.isEmpty()){
+updateEmptyListState(false)
         for(item in listItemInfo){
             Card(title = item["title"].toString(), item)
         }
         }else{
-            println("empty")
 updateEmptyListState(true)
+            Box(
+            Modifier
+                .height(50.dp)
+                .fillMaxWidth(), contentAlignment = Alignment.Center){
+            Text("Nothing to show", fontFamily = fontFamily, fontSize = 14.sp, color = Color.LightGray)
+        }
     }
 }

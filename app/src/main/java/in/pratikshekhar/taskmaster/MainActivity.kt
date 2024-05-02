@@ -49,11 +49,7 @@ class MainActivity : ComponentActivity() {
     }
     @Composable
     fun MainView(){
-        val user = Firebase.auth.currentUser
-        var startDestination = "main"
-        if (user == null) {
-            startDestination="signin"
-        }
+
 var shareDataBetweenScreen by remember {
 
     mutableStateOf(TaskAttrForDatabase(1,1,"","","",""))
@@ -62,7 +58,7 @@ var shareDataBetweenScreen by remember {
         val navController = rememberNavController()
 
         CompositionLocalProvider(LocalNavController provides navController, LocalSharedTask provides shareDataBetweenScreen) {
-            NavHost(navController = navController, startDestination = startDestination) {
+            NavHost(navController = navController, startDestination = "splash") {
                 composable("splash") { SplashScreen() }
                 composable("signup") { SignUpScreen() }
                 composable("signin") { SignInScreen() }
