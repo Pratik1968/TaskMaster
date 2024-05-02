@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "522933376353",
+    "project_id": "task-master-4a25b",
+    "storage_bucket": "task-master-4a25b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522933376353:android:009feddf610fc8c069e120",
+        "android_client_info": {
+          "package_name": "in.pratikshekhar.taskmaster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-KHQ7xG7ZvDkpL1LVvQCwyfbjs56bDZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
