@@ -12,6 +12,8 @@ Features
 - Mark as Complete: Check off tasks as you complete them to track your progress.
 - Simple Interface: User-friendly design for effortless task management.
 
+https://github.com/Pratik1968/TaskMaster/assets/47908854/8182373d-235b-4e50-95ee-d43008252431
+
 
 
 Feedback
